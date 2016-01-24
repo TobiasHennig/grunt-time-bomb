@@ -14,7 +14,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('time_bomb', 'Detect time bombs in source code comments.', function() {
     var bd = new BombDetector();
     bd.parse(this.files);
-    var timers = bd.timers.get(), bombs = timers.bombs();
+    var timers = bd.timers.get(), bombs = bd.timers.bombs();
 
     if (timers.length === 0) {
       grunt.log.write('No timers found.');

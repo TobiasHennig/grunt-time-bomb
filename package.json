@@ -1,7 +1,7 @@
 {
   "name": "grunt-time-bomb",
   "description": "Detect time bombs in source code comments.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/tobiashennig/grunt-time-bomb",
   "author": {
     "name": "Tobias Hennig",

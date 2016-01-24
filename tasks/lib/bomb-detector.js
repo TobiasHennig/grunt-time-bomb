@@ -11,17 +11,26 @@ module.exports = function(grunt) {
 
   BombDetector.prototype.parse = function(files) {
     var comments = [], options = {};
-    files.forEach(function(file) {
-      comments = options.onComment = [];
-      acorn.parse(grunt.file.read(file.src), options);
-      this.parseComments(file, comments);
+    files.forEach(function(file) {    
+      file.src.filter(function(filepath) {
+        // Remove nonexistent files (it's up to you to filter or warn here).
+        if (!grunt.file.exists(filepath)) {
+          grunt.log.warn('Source file "' + filepath + '" not found.');
+          return false;
+        }
+        return true;
+      }).map(function(filepath){
+        comments = options.onComment = [];
+        acorn.parse(grunt.file.read(filepath), options);
+        this.parseComments(filepath, comments);
+      }, this);
     }, this);
   };
 
-  BombDetector.prototype.parseComments = function(file, comments) {
+  BombDetector.prototype.parseComments = function(filepath, comments) {
     comments.forEach(function(comment) {
       if (this.isTimer(comment)) {
-        this.timers.add(file.src, this.getDateFromTimer(comment));
+        this.timers.add(filepath, this.getDateFromTimer(comment));
       }
     }, this);
   };
