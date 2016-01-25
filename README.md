@@ -20,8 +20,16 @@ grunt.loadNpmTasks('grunt-time-bomb');
 ## The "time_bomb" task
 
 ### Overview
-In your project's Gruntfile, add a section named `time_bomb` to the data object passed into `grunt.initConfig()`.
 
+In your script files, add a **@timer** comment with the detonation date. 
+```js
+// @timer YYYY-MM-DD
+function christmasSpecial() {
+  ...
+}
+```
+
+In your project's Gruntfile, add a section named `time_bomb` to the data object passed into `grunt.initConfig()`.
 ```js
 grunt.initConfig({
   time_bomb: {
@@ -35,6 +43,17 @@ grunt.initConfig({
 ### Usage Example
 
 ```js
+// script.js
+
+// @timer 2016-12-24
+function christmasSpecial() {
+  ...
+}
+```
+
+```js
+// Gruntfile.js
+
 grunt.initConfig({
   time_bomb: {
     files: ['src/*.js'],
