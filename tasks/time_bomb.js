@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('time_bomb', 'Detect time bombs in source code comments.', function() {
     var bd = new BombDetector();
-    bd.parse(this.files);
+    bd.parse(this.filesSrc);
     var timers = bd.timers.get(), bombs = bd.timers.bombs();
 
     if (timers.length === 0) {

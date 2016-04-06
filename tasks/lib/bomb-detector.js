@@ -11,19 +11,18 @@ module.exports = function(grunt) {
 
   BombDetector.prototype.parse = function(files) {
     var comments = [], options = {};
-    files.forEach(function(file) {    
-      file.src.filter(function(filepath) {
-        // Remove nonexistent files (it's up to you to filter or warn here).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        }
-        return true;
-      }).map(function(filepath){
-        comments = options.onComment = [];
-        acorn.parse(grunt.file.read(filepath), options);
-        this.parseComments(filepath, comments);
-      }, this);
+
+    files.filter(function(filepath) {
+      // Remove nonexistent files (it's up to you to filter or warn here).
+      if (!grunt.file.exists(filepath)) {
+        grunt.log.warn('Source file "' + filepath + '" not found.');
+        return false;
+      }
+      return true;
+    }).map(function(filepath) {
+      comments = options.onComment = [];
+      acorn.parse(grunt.file.read(filepath), options);
+      this.parseComments(filepath, comments);
     }, this);
   };
 

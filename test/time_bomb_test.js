@@ -1,7 +1,10 @@
 'use strict';
 
+var path = require('path');
 var grunt = require('grunt');
 var BombDetector = require('../tasks/lib/bomb-detector')(grunt);
+
+var fixtures = path.join(__dirname, 'fixtures');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -25,7 +28,7 @@ var BombDetector = require('../tasks/lib/bomb-detector')(grunt);
 
 exports.time_bomb = {
   setUp: function(done) {
-    this.files = [{ src: 'test/fixtures/testing.js' }];
+    this.files = [path.join(fixtures, 'testing.js')];
     this.bd = new BombDetector();
     this.bd.parse(this.files);
     done();
