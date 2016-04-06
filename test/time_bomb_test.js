@@ -39,7 +39,7 @@ exports.time_bomb = {
     var timers = this.bd.timers.get();
     var bombs = this.bd.timers.bombs();
 
-    test.equal(timers.length, 7, 'should detect all timers');
+    test.equal(timers.length, 8, 'should detect all timers');
     test.equal(bombs.length, 2, 'should detect all bombs');
 
     test.done();

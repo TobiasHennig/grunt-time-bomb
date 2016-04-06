@@ -4,8 +4,8 @@ var Timers = require('./timers');
 module.exports = function(grunt) {
   function BombDetector(files) {
     this.key = '@timer';
-    this.testRegExp = new RegExp(this.key + '\\s', 'i');
-    this.dateRegExp = new RegExp(this.key + '\\s+(\\d{4}-\\d{2}-\\d{2})', 'i');
+    this.testRegExp = new RegExp(this.key + '[^\\w]', 'i');
+    this.dateRegExp = new RegExp(this.key + '[^\\w]+(\\d{4}-\\d{2}-\\d{2})', 'i');
     this.timers = new Timers();
   }
 

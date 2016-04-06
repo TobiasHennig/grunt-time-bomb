@@ -25,6 +25,7 @@ function future() {
  */
 
 // @timer          2100-01-04
+// @timer: 2100-01-04
 // @Timer 2100-01-05
 
 // @timerr 2100-01-01
