@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     } else if (timers.length > 0 && bombs.length === 0) {
       grunt.log.ok('No exploded time bombs found.');
     } else if (bombs.length > 0) {
-      grunt.fatal('Exploded time bomb found in file: ' + bombs[0].file);
+      grunt.fail.warn('Exploded time bomb found in file: ' + bombs[0].file);
     }
   });
 };
