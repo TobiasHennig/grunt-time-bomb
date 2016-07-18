@@ -27,7 +27,8 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "^1.0.0",
+    "eslint-config-standard": "^5.3.5",
+    "eslint-plugin-standard": "^2.0.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-nodeunit": "^1.0.0",
     "grunt": "^1.0.1"
