@@ -1,4 +1,4 @@
-var acorn = require('acorn')
+var acorn = require('acorn/dist/acorn_loose')
 var Timers = require('./timers')
 
 module.exports = function (grunt) {
@@ -21,7 +21,7 @@ module.exports = function (grunt) {
       return true
     }).map(function (filepath) {
       comments = options.onComment = []
-      acorn.parse(grunt.file.read(filepath), options)
+      acorn.parse_dammit(grunt.file.read(filepath), options)
       this.parseComments(filepath, comments)
     }, this)
   }
