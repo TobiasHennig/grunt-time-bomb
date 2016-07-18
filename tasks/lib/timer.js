@@ -1,7 +1,9 @@
-function Timer(file, date) {
-  this.file = file;
-  this.date = date;
+function Timer(data) {
+  this.file = data.file;
+  this.date = data.date;
+  this.text = data.text;
   this.isBomb = false;
+  
   this.updateIsBomb();
 }
 

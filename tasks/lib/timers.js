@@ -4,11 +4,11 @@ function Timers() {
   this.items = [];
 }
 
-Timers.prototype.add = function(file, date) {
-  this.items.push(new Timer(file, date));
+Timers.prototype.add = function(data) {
+  this.items.push(new Timer(data));
 };
 
-Timers.prototype.get = function(file, date) {
+Timers.prototype.get = function() {
   return this.items;
 };
 

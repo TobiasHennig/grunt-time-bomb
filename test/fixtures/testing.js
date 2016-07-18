@@ -1,31 +1,29 @@
-// @timer 1990-01-01
-function past() {
-    console.log('past');
-}
-
-// @timer 2016-01-01
-function presence() {
-    console.log('presence');
-}
-
 // @timer 2100-01-01
-function future() {
-    console.log('future');
-}
+
+// @timer 1990-01-01
+
+// @timer: 1990-01-01
+
+// @Timer 1990-01-01
 
 // first line
-// @timer 2100-01-02
+// @timer 1990-01-01
 // third line
-
 
 /**
  * A comment
  *
- * @timer 2100-01-03
+ * @timer 1990-01-01
  */
 
-// @timer          2100-01-04
-// @timer: 2100-01-04
-// @Timer 2100-01-05
+// @timer 1990-01-01 Text
 
-// @timerr 2100-01-01
+// @timer 1990-01-01 12:00
+
+// @timer 1990-01-01 12:00 Text
+
+// @timer 1990-01-01 12:12:12 Text
+
+// @timer          1990-01-01       12:00    Text Text    
+
+// @timerr 1990-01-01

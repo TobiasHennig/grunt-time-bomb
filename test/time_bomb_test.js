@@ -34,13 +34,31 @@ exports.time_bomb = {
     done();
   },
   defaults: function(test) {
-    test.expect(2);
+    test.expect(10);
 
     var timers = this.bd.timers.get();
     var bombs = this.bd.timers.bombs();
 
-    test.equal(timers.length, 8, 'should detect all timers');
-    test.equal(bombs.length, 2, 'should detect all bombs');
+    test.equal(timers.length, 11, 'should detect all timers');
+    test.equal(bombs.length, 10, 'should detect all bombs');
+
+    // @timer 2100-01-01
+    test.equal(bombs[0].date.getTime(), new Date('1990-01-01T00:00:00Z').getTime(), 'should detect date');
+    test.equal(bombs[0].text, undefined, 'should detect date');
+
+    // @timer 1990-01-01 Text
+    test.equal(bombs[5].text, 'Text', 'should detect text');
+
+    // @timer 1990-01-01 12:00
+    test.equal(bombs[6].date.getTime(), new Date('1990-01-01T12:00:00Z').getTime(), 'should detect time');
+
+    // @timer 1990-01-01 12:12:12 Text
+    test.equal(bombs[8].date.getTime(), new Date('1990-01-01T12:12:12Z').getTime(), 'should detect time with minutes');
+    test.equal(bombs[8].text, 'Text', 'should detect text');
+
+    // @timer          1990-01-01       12:00    Text Text
+    test.equal(bombs[9].date.getTime(), new Date('1990-01-01T12:00:00Z').getTime(), 'should detect time');
+    test.equal(bombs[9].text, 'Text Text', 'should detect text');
 
     test.done();
   }
